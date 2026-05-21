@@ -1,8 +1,10 @@
 const config = {
-  challenge: false, // Set to true if you want to enable password protection.
+  // Always enforce the login page on Vercel
+  challenge: true, 
+
   users: {
-    // You can add multiple users by doing username: 'password'.
-    interstellar: "password",
+    // This reads the password securely from Vercel's environment variables
+    baker: process.env.BAKER_PASSWORD || "fallback_local_password",
   },
 };
 
